@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./image.svg" />
+    <title>JAK WPŁACIĆ - HELLBOY REKOMENDACJE</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: black;
+            overflow-x: hidden;
+            width: 100%;
+            color: #fff;
+        }
+
+        /* PREMIUM NAVBAR */
+        .premium-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.9) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .premium-nav.scrolled {
+            background: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(5,5,5,0.95) 100%);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.6);
+            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .logo-hellboy-img {
+            height: 45px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .logo-hellboy-img:hover {
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
+            transform: scale(1.02);
+        }
+
+        .elegant-menu {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+        }
+
+        .elegant-menu li a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 10px 22px;
+            display: block;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+
+        .elegant-menu li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.2), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+
+        .elegant-menu li a:hover::before {
+            left: 100%;
+        }
+
+        .elegant-menu li a:hover {
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.05);
+            transform: translateY(-1px);
+        }
+
+        .elegant-menu li a.active {
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            color: black;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .premium-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .premium-hamburger:hover {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .premium-hamburger span {
+            width: 24px;
+            height: 2px;
+            background: linear-gradient(90deg, #FFD700, #FDB931);
+            border-radius: 2px;
+            transition: all 0.4s ease;
+        }
+
+        @media (max-width: 992px) {
+            .nav-container {
+                height: 70px;
+                padding: 0 20px;
+            }
+
+            .premium-hamburger {
+                display: flex;
+            }
+
+            .elegant-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                max-width: 100%;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(255, 215, 0, 0.2);
+                border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+                padding: 20px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+                gap: 5px;
+                border-radius: 0;
+            }
+
+            .elegant-menu.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .elegant-menu li a {
+                padding: 15px 25px;
+                margin: 3px 0;
+                text-align: center;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .premium-hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .premium-hamburger.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+
+            .premium-hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .logo-hellboy-img {
+                height: 35px;
+                max-width: 140px;
+            }
+        }
+
+        /* Główna sekcja */
+        .main {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            background-image: url("./background.png");
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+            padding-bottom: 0;
+        }
+
+        .instructions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            border: 2px solid #FFD700;
+            box-shadow: 0px 0px 30px 0px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .intro-text {
+            color: #ccc;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .section-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid #FFD700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0px 0px 20px 0px rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #FFD700;
+        }
+
+        .method-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #FFD700;
+        }
+
+        .method-box h3 {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .method-box p {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .fee-label {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .warning {
+            background: rgba(184, 134, 11, 0.15);
+            border-left: 4px solid #B8860B;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            color: #FFD700;
+        }
+
+        .info-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid #FFD700;
+        }
+
+        .info-box h4 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .tip {
+            color: #FFD700 !important;
+            font-style: italic;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .important-card {
+            grid-column: 1 / -1;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid #B8860B;
+            margin-top: 1rem;
+            box-shadow: 0px 0px 30px 0px rgba(184, 134, 11, 0.3);
+        }
+
+        .important-card h2 {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .important-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .important-card li {
+            color: #ccc;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .important-card li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #FFD700;
+        }
+
+        @media (max-width: 768px) {
+            .instructions-container {
+                padding: 1rem;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .section-card {
+                padding: 1.5rem;
+            }
+            .important-card {
+                padding: 1.5rem;
+            }
+            .main {
+                padding-top: 80px;
+                background-image: url("./mobile_bg.png");
+            }
+        }
+
+        /* Live Status Box */
+        .live-status-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .live-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+        }
+
+        .live-status.live {
+            background: rgba(255, 215, 0, 0.1);
+            color: #FFD700;
+            border-color: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            animation: status-pulse-gold 2s infinite;
+        }
+
+        .live-status.offline {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff4444;
+            border-color: rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            animation: none;
+        }
+
+        @keyframes status-pulse-gold {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: pulse-gold 1.5s infinite;
+        }
+
+        .live-status.live .status-dot {
+            background: #FFD700;
+            box-shadow: 0 0 10px #FFD700;
+        }
+
+        .live-status.offline .status-dot {
+            background: #ff4444;
+            box-shadow: 0 0 10px #ff4444;
+            animation: none;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.8; }
+        }
+
+        /* PREMIUM FOOTER */
+        .premium-footer {
+            width: 100%;
+            background-color: black;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 60px 20px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.3), 
+                #FFD700, 
+                rgba(255, 215, 0, 0.3), 
+                transparent);
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 20px 0 10px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-icon:hover::before {
+            left: 100%;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.1);
+            border-color: #FFD700;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        .social-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: #FFD700;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .social-icon:hover svg {
+            fill: #FFE55C;
+            transform: scale(1.1);
+        }
+
+        .social-icon.kick-icon svg {
+            transform: scale(1.1);
+        }
+
+        .footer-info-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 20px auto 10px;
+            padding: 0 15px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding-top: 30px;
+        }
+
+        .footer-info-text p {
+            margin: 8px 0;
+        }
+
+        .footer-info-text .highlight {
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        .footer-info-text .small {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.8rem;
+        }
+
+        .ruletka {
+            width: 25vw;
+            max-width: 300px;
+        }
+
+        @media (max-width: 767px) {
+            .ruletka {
+                width: 65vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="live-status-container">
+        <div class="live-status offline" id="liveStatus">
+            <span class="status-dot"></span>
+            <span class="status-text">OFFLINE</span>
+        </div>
+    </div>
+
+    <!-- PREMIUM NAVBAR -->
+    <nav class="premium-nav" id="premiumNav">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <img src="./HELLBOY.png" alt="HELLBOY Logo" class="logo-hellboy-img">
+            </div>
+            
+            <div class="premium-hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="elegant-menu" id="navMenu">
+                <li><a href="./index.html">STRONA GŁÓWNA</a></li>
+                <li><a href="./wplacanie.html" class="active">WPŁATY/WYPŁATY</a></li>
+                <li><a href="./blokady.html">BLOKADY</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="instructions-container">
+            <div class="hero-section">
+                <h1>Jak wpłacać i wypłacać środki</h1>
+                <p class="intro-text">Kompleksowy przewodnik po metodach płatności i wypłat w kasynach kryptowalutowych</p>
+            </div>
+
+            <div class="content-grid">
+                <!-- WPŁATY -->
+                <div class="section-card">
+                    <h2 class="section-title">💰 Jak WPŁACAĆ poprzez krypto</h2>
+                    
+                    <div class="method-box">
+                        <h3>ByBit - giełda</h3>
+                        <p>Zaufana giełda kryptowalutowa. Można kupować krypto w złotówkach BLIKiem.</p>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Binance - giełda</h3>
+                        <p>Popularna giełda, doładowanie w euro/dolarach kartą Revoluta.</p>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Trust Wallet - aplikacja</h3>
+                        <p>Prywatny portfel bez weryfikacji, kupno krypto przez Google Pay.</p>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Revolut</h3>
+                        <p>Ograniczona ilość kryptowalut, ale proste w użyciu.</p>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Crypto.com</h3>
+                        <p>Giełda z aplikacją mobilną i kartą płatniczą.</p>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>⚠️ Uwaga:</strong> Zawsze sprawdzaj adres odbiorcy przed wysłaniem krypto!
+                    </div>
+                </div>
+
+                <!-- WYPŁATY -->
+                <div class="section-card">
+                    <h2 class="section-title">💵 Jak WYPŁACAć z krypto do gotówki</h2>
+                    
+                    <div class="method-box">
+                        <h3>ZEN - najmniejsze fee na kartę</h3>
+                        <p>Wypłata przez Binance/ByBit → wymiana na PLN → wypłata na ZEN w kilka sekund.</p>
+                        <span class="fee-label">Bardzo niskie fee</span>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Revolut</h3>
+                        <p>Proste rozwiązanie dla mniejszych kwot, wymiana krypto na fiat w aplikacji.</p>
+                        <span class="fee-label">Dla mało obeznanych</span>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Crypto.com</h3>
+                        <p>Zamów kartę, wpłać krypto, doładuj kartę i wypłacaj w bankomatach.</p>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Bitomaty - najmniejsze fee do gotówki</h3>
+                        <p>Do 1000 EUR dziennie bez weryfikacji. Fee przy 500 USDT to ~4-5 PLN.</p>
+                        <span class="fee-label">Najtańsza gotówka</span>
+                    </div>
+                    
+                    <div class="method-box">
+                        <h3>Cashify</h3>
+                        <p>Wizyta w placówce, do 1000 EUR bez weryfikacji.</p>
+                        <span class="fee-label">Wyższe opłaty</span>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h4>Bezpieczne wypłaty z kasyna:</h4>
+                        <p><strong>Kasyno → Crypto.com → Bankomat</strong> (najprostszy sposób)</p>
+                        <p><strong>Kasyno → Binance/ByBit → Zen → Bankomat</strong> (niskie opłaty)</p>
+                        <p class="tip">Zawsze używaj Trust Wallet jako pośrednika dla większego bezpieczeństwa!</p>
+                    </div>
+                </div>
+
+                <!-- WAŻNE INFORMACJE -->
+                <div class="important-card">
+                    <h2>‼️ WAŻNE INFORMACJE</h2>
+                    <ul>
+                        <li>Zawsze sprawdzaj adres i chain (np. TRC20 dla USDT)</li>
+                        <li>Miej odpowiednią walutę na opłaty transakcyjne (TRX dla TRC20, ETH dla ERC20)</li>
+                        <li>Dla dużych kwot rozważ wypłatę za granicą (brak/mniejsze opodatkowanie)</li>
+                        <li>Używaj prywatnych portfeli (Trust Wallet) jako bufora bezpieczeństwa</li>
+                        <li>Zapisuj recovery seed w bezpiecznym miejscu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./ruletka.png" alt="Bonusy" style="height: auto;" class="ruletka">
+            </div>
+            
+            <div class="footer-social">
+                <a class="social-icon" href="https://www.instagram.com/grzegorz_hellboy_gluszcz/" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.3 2C5.5 4 4 5.5 4 7.5v9c0 2 1.5 3.5 3.5 3.5h9c2 0 3.5-1.5 3.5-3.5v-9C20 5.5 18.5 4 16.5 4h-9zM12 7c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5zm0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm5-2.5c0 .6-.4 1-1 1s-1-.4-1-1 .4-1 1-1 1 .4 1 1z"/>
+                    </svg>
+                </a>
+                <a class="social-icon kick-icon" href="https://kick.com/hellboylivetv" target="_blank">
+                    <img src="./kick.svg" alt="Kick" style="width: 32px; height: 32px; filter: brightness(0) saturate(100%) invert(74%) sepia(95%) saturate(405%) hue-rotate(359deg) brightness(106%) contrast(106%);">
+                </a>
+                <a class="social-icon" href="https://www.tiktok.com/@hellboylivetv" target="_blank">
+                    <img src="./tiktok.svg" alt="TikTok" style="width: 28px; height: 28px; filter: brightness(0) saturate(100%) invert(74%) sepia(95%) saturate(405%) hue-rotate(359deg) brightness(106%) contrast(106%);">
+                </a>
+            </div>
+            
+            <div class="footer-info-text">
+                <p><span class="highlight">Bonusy prezentowane na stronie</span> przeznaczone są wyłącznie dla osób przebywających za granicą, gdzie przepisy prawa na to zezwalają.</p>
+                <p>🎯 <span class="highlight">Tylko dla osób pełnoletnich (18+)</span>. Hazard wiąże się z ryzykiem uzależnienia. Graj odpowiedzialnie.</p>
+                <p class="small">Wszystkie oferty promocyjne podlegają regulaminom poszczególnych kasyn. Sprawdź warunki przed skorzystaniem z bonusu.</p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 HELLBOY Rekomendacje. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const premiumNav = document.getElementById('premiumNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                premiumNav.classList.add('scrolled');
+            } else {
+                premiumNav.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        const navLinks = document.querySelectorAll('.elegant-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        document.addEventListener('click', (event) => {
+            const isClickInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
+            if (!isClickInsideNav && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Kick API Live Status Check
+        async function checkKickLiveStatus() {
+            const liveStatus = document.getElementById('liveStatus');
+            const statusText = document.querySelector('.status-text');
+            
+            try {
+                const kickUsername = 'hellboylivetv';
+                const response = await fetch(`https://kick.com/api/v1/channels/${kickUsername}`);
+                
+                if (!response.ok) throw new Error('Nie udało się pobrać danych');
+                
+                const data = await response.json();
+                
+                if (data.livestream && data.livestream.is_live) {
+                    liveStatus.className = 'live-status live';
+                    statusText.textContent = 'LIVE';
+                    if (data.livestream.session_title) {
+                        liveStatus.setAttribute('title', data.livestream.session_title);
+                    }
+                } else {
+                    liveStatus.className = 'live-status offline';
+                    statusText.textContent = 'OFFLINE';
+                }
+                
+            } catch (error) {
+                console.error('Błąd pobierania statusu Kick:', error);
+                liveStatus.className = 'live-status offline';
+                statusText.textContent = 'OFFLINE';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkKickLiveStatus);
+        setInterval(checkKickLiveStatus, 60000);
+    </script>
+</body>
+</html>
