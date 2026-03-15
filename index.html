@@ -517,7 +517,7 @@
             background: linear-gradient(145deg, #FFE55C, #C6930A);
         }
 
-        /* KOMUNIKAT O KODZIE */
+        /* KOMUNIKAT O KODZIE - ZMODYFIKOWANY */
         .code-message {
             background: linear-gradient(145deg, rgba(255,215,0,0.15), rgba(184,134,11,0.1));
             border: 2px solid #FFD700;
@@ -550,6 +550,16 @@
             font-size: 32px;
             border: 2px solid #FFD700;
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .instruction-text {
+            font-size: 16px !important;
+            margin-top: 15px !important;
+            color: #FFD700 !important;
+            text-transform: none !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+            line-height: 1.4 !important;
         }
 
         @keyframes glow-pulse {
@@ -817,24 +827,24 @@
             }
 
             .hero-content {
-                margin-top: 10vh; /* Zmniejszamy margines górny */
-                gap: 5px; /* Zmniejszamy odstępy między elementami */
+                margin-top: 10vh;
+                gap: 5px;
             }
             
             .hero-title {
                 max-width: 400px;
-                margin: 0 auto 5px; /* Zmniejszamy dolny margines */
+                margin: 0 auto 5px;
             }
 
             .hero-title img {
-                max-height: 70px; /* Zmniejszamy wysokość napisu */
+                max-height: 70px;
             }
             
             .hero-cards {
                 gap: 15px;
                 max-width: 100%;
                 padding: 0 10px;
-                margin-top: 5px; /* Zmniejszamy margines górny */
+                margin-top: 5px;
             }
             
             .card {
@@ -883,6 +893,11 @@
                 font-size: 24px;
                 padding: 5px 15px;
                 margin-top: 5px;
+            }
+
+            .instruction-text {
+                font-size: 14px !important;
+                margin-top: 10px !important;
             }
             
             .live-status {
@@ -962,6 +977,10 @@
 
             .code-message .highlight-code {
                 font-size: 20px;
+            }
+
+            .instruction-text {
+                font-size: 12px !important;
             }
         }
 
@@ -1100,11 +1119,12 @@
                     </div>
                 </div>
                 
-                <!-- KOMUNIKAT O KODZIE - POD KAFELKAMI -->
+                <!-- KOMUNIKAT O KODZIE - ZMODYFIKOWANY -->
                 <div class="code-message">
                     <p>⚡ UWAGA! ⚡</p>
-                    <p>Aby otrzymać bonusy, musisz użyć kodu:</p>
+                    <p>Aby uzyskać bonusy oraz udział w rozdaniach<br>WYMAGANE JEST WPISANIE/UŻYCIE KODU:</p>
                     <p class="highlight-code">HELLBOY</p>
+                    <p class="instruction-text">Kod należy wpisać podczas rejestracji w polu "Kod promocyjny" lub "Bonus code".</p>
                 </div>
             </div>
         </section>
