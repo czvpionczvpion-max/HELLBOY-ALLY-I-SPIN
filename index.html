@@ -28,7 +28,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             z-index: 9999;
             align-items: center;
@@ -186,27 +186,23 @@
                 padding: 30px 20px;
                 border-radius: 40px;
             }
-
             .age-icon {
                 width: 80px;
                 height: 80px;
                 font-size: 40px;
             }
-
             .age-title {
                 font-size: 28px;
             }
-
             .age-text {
                 font-size: 16px;
             }
-
             .age-buttons {
                 flex-direction: column;
             }
         }
 
-        /* RESZTA STYLU (bez zmian) */
+        /* premium nav */
         .premium-nav {
             position: fixed;
             top: 0;
@@ -214,7 +210,6 @@
             width: 100%;
             background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.9) 100%);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-bottom: 2px solid rgba(255, 215, 0, 0.3);
             z-index: 1000;
             transition: all 0.4s ease;
@@ -224,7 +219,6 @@
         .premium-nav.scrolled {
             background: linear-gradient(180deg, rgba(0,0,0,0.98) 0%, rgba(5,5,5,0.95) 100%);
             border-bottom: 2px solid rgba(255, 215, 0, 0.6);
-            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.2);
         }
 
         .nav-container {
@@ -241,22 +235,6 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            position: relative;
-        }
-
-        .pfp-logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #FFD700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            transition: all 0.4s ease;
-        }
-
-        .pfp-logo:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
         }
 
         .logo-hellboy-img {
@@ -266,11 +244,6 @@
             object-fit: contain;
             transition: all 0.3s ease;
             display: block;
-        }
-
-        .logo-hellboy-img:hover {
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
-            transform: scale(1.02);
         }
 
         .elegant-menu {
@@ -304,10 +277,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 215, 0, 0.2), 
-                transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
@@ -318,7 +288,6 @@
         .elegant-menu li a:hover {
             color: #FFD700;
             background: rgba(255, 215, 0, 0.05);
-            transform: translateY(-1px);
         }
 
         .elegant-menu li a.active {
@@ -337,12 +306,6 @@
             border-radius: 8px;
             padding: 10px 12px;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .premium-hamburger:hover {
-            border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.05);
         }
 
         .premium-hamburger span {
@@ -358,22 +321,18 @@
                 height: 70px;
                 padding: 0 20px;
             }
-
             .premium-hamburger {
                 display: flex;
             }
-
             .elegant-menu {
                 position: fixed;
                 top: 80px;
                 left: 0;
                 width: 100%;
-                max-width: 100%;
                 flex-direction: column;
                 background: rgba(0, 0, 0, 0.98);
                 backdrop-filter: blur(20px);
                 border-top: 1px solid rgba(255, 215, 0, 0.2);
-                border-bottom: 1px solid rgba(255, 215, 0, 0.2);
                 padding: 20px;
                 opacity: 0;
                 visibility: hidden;
@@ -381,36 +340,26 @@
                 gap: 5px;
                 border-radius: 0;
             }
-
             .elegant-menu.active {
                 opacity: 1;
                 visibility: visible;
             }
-
             .elegant-menu li a {
                 padding: 15px 25px;
-                margin: 3px 0;
                 text-align: center;
                 font-size: 1rem;
-                border-radius: 8px;
             }
-
             .premium-hamburger.active span:nth-child(1) {
                 transform: rotate(45deg) translate(6px, 6px);
             }
-
             .premium-hamburger.active span:nth-child(2) {
                 opacity: 0;
-                transform: translateX(-10px);
             }
-
             .premium-hamburger.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(6px, -6px);
             }
-
             .logo-hellboy-img {
                 height: 35px;
-                max-width: 140px;
             }
         }
 
@@ -454,15 +403,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             padding: 20px;
             margin-top: 5vh;
         }
 
+        /* NAPIS.PNG */
         .hero-title {
             width: 100%;
             max-width: 600px;
-            margin: 0 auto 20px;
+            margin: 40px auto 10px auto;
             position: relative;
             z-index: 3;
         }
@@ -477,290 +427,270 @@
         }
 
         @keyframes titleGlow {
-            from {
-                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
-            }
-            to {
-                filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.7));
-            }
+            from { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.7)); }
         }
 
-        .hero-cards {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 30px;
-            justify-content: center;
-            align-items: stretch;
+        /* SIATKA BONUSÓW - 4 kafelki */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            max-width: 1200px;
             width: 100%;
-            max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
             position: relative;
             z-index: 3;
-            margin-top: 20px;
         }
-        
-        .card {
-            flex: 1 1 0;
-            min-width: 0;
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            border-radius: 40px;
-            padding: 25px 20px 30px;
-            box-shadow: 0 30px 50px -10px rgba(0, 0, 0, 0.9), 
-                        0 0 0 1px rgba(255, 215, 0, 0.25) inset,
-                        0 0 40px rgba(255, 215, 0, 0.15);
+
+        .bonus-card {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 1.2rem 0.8rem;
             text-align: center;
-            border: 1px solid rgba(255, 215, 0, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.6);
             display: flex;
             flex-direction: column;
-            height: auto;
-            min-height: 320px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            justify-content: flex-start;
-            transform: scale(1);
-        }
-
-        .card-l {
-            background-image: url("./L.png");
-        }
-
-        .card-p {
-            background-image: url("./P.png");
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .card:hover::before {
-            opacity: 1;
-        }
-
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
-            transition: left 0.6s ease;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .card:hover::after {
-            left: 100%;
-        }
-
-        .card:hover {
-            transform: scale(1.02) translateY(-5px);
-            border-color: rgba(255, 215, 0, 0.9);
-            box-shadow: 0 40px 60px -10px rgba(255, 215, 0, 0.3), 
-                        0 0 0 2px rgba(255, 215, 0, 0.4) inset,
-                        0 0 50px rgba(255, 215, 0, 0.2);
-        }
-
-        .card-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            position: relative;
-            z-index: 3;
             height: 100%;
         }
 
-        .card-logo {
-            width: 100%;
+        .bonus-card:hover {
+            transform: translateY(-6px);
+            border-color: #FFD700;
+            box-shadow: 0 18px 35px rgba(255, 215, 0, 0.25);
+        }
+
+        .bonus-img {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 10px;
-            min-height: 70px;
+            padding: 0.8rem;
+            min-height: 100px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
-        .card-logo img {
-            max-width: 160px;
-            max-height: 70px;
-            width: auto;
-            height: auto;
+        .bonus-img img {
+            width: 100%;
+            max-height: 85px;
             object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
-            transition: all 0.4s ease;
+            border-radius: 16px;
         }
 
-        .card:hover .card-logo img {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
-        }
-
-        .bonus-box {
-            border-radius: 60px;
-            padding: 12px 15px;
-            background: linear-gradient(145deg, #2a200a, #1a1305);
-            border: 2px solid #FFD700;
-            font-weight: 900;
-            font-size: 24px;
-            margin: 5px 0;
-            color: #FFD700;
-            text-shadow: 0 0 15px #FFD700;
-            letter-spacing: 1px;
-            width: 100%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.6), 0 0 15px rgba(255, 215, 0, 0.3);
-            transform: perspective(500px) rotateX(1deg);
-            transition: all 0.3s;
-            line-height: 1.2;
-        }
-
-        .card:hover .bonus-box {
-            transform: perspective(500px) rotateX(0deg) scale(1.02);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.5);
-            border-color: #FFE55C;
-        }
-
-        .bonus-description {
-            color: #ffffff;
-            font-size: 16px;
-            margin: 0;
-            font-weight: 600;
-            background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(184, 134, 11, 0.15));
-            padding: 8px 20px;
-            border-radius: 40px;
-            display: inline-block;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            backdrop-filter: blur(4px);
-            letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
-
-        .bonus-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 20px;
-            background: linear-gradient(145deg, #FFD700, #B8860B);
-            color: #000000;
-            text-decoration: none;
-            border-radius: 50px;
+        .bonus-card h3 {
+            font-size: 1rem;
             font-weight: 800;
-            font-size: 18px;
+            margin: 0.6rem 0 0.5rem;
+            color: #FFD700;
+            line-height: 1.3;
+            text-shadow: 0 1px 2px black;
+        }
+
+        .bonus-code {
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: inline-block;
+            padding: 0.45rem 1rem;
+            border-radius: 60px;
+            margin: 0.4rem auto 0.8rem;
+            color: #0a0a0a;
+            letter-spacing: 0.8px;
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+            width: auto;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .btn-odbierz {
+            background: linear-gradient(135deg, #FFD700, #B8860B);
             border: none;
+            color: black;
+            font-weight: 900;
+            font-size: 1rem;
+            padding: 0.7rem 0.9rem;
+            border-radius: 60px;
+            width: 85%;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 25px rgba(255, 215, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.3) inset;
-            width: 100%;
-            margin-top: 15px;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transform: scale(1);
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.7);
+        }
+
+        .btn-odbierz:hover {
+            background: linear-gradient(135deg, #FFE55C, #C6930A);
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
+        }
+
+        /* KAFELEK KOMUNIKATU - IDENTYCZNY STYL JAK BONUSY */
+        .info-card {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.6);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto 0;
+            position: relative;
             z-index: 3;
         }
 
-        .bonus-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.4), 
-                transparent);
-            transition: left 0.5s ease;
+        .info-card:hover {
+            transform: translateY(-6px);
+            border-color: #FFD700;
+            box-shadow: 0 18px 35px rgba(255, 215, 0, 0.25);
         }
 
-        .bonus-button:hover::before {
-            left: 100%;
-        }
-
-        .bonus-button:hover {
-            transform: scale(1.02) translateY(-2px);
-            box-shadow: 0 20px 35px rgba(255, 215, 0, 0.6), 0 0 0 2px rgba(255,255,255,0.5) inset;
-            background: linear-gradient(145deg, #FFE55C, #C6930A);
-        }
-
-        .code-message {
-            background: linear-gradient(145deg, rgba(255,215,0,0.15), rgba(184,134,11,0.1));
-            border: 2px solid #FFD700;
-            border-radius: 60px;
-            padding: 18px 40px;
-            margin: 20px auto 0;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-            backdrop-filter: blur(5px);
-            animation: glow-pulse 2s infinite;
-            max-width: 90%;
-            width: 100%;
-        }
-
-        .code-message p {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 900;
-            color: #FFD700;
-            text-shadow: 0 0 15px #FFD700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .code-message .highlight-code {
-            background: black;
-            padding: 8px 25px;
-            border-radius: 40px;
+        .info-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
             display: inline-block;
-            margin: 10px 0 0;
-            font-size: 32px;
-            border: 2px solid #FFD700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            filter: drop-shadow(0 0 8px rgba(255,215,0,0.6));
         }
 
-        .instruction-text {
-            font-size: 16px !important;
-            margin-top: 15px !important;
-            color: #FFD700 !important;
-            text-transform: none !important;
-            font-weight: 600 !important;
-            letter-spacing: 0.5px !important;
-            line-height: 1.4 !important;
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0.5rem 0 0.8rem;
+            color: #FFD700;
+            letter-spacing: 1px;
         }
 
-        @keyframes glow-pulse {
-            0%, 100% {
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        .info-highlight-code {
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            display: inline-block;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            font-size: 2rem;
+            font-weight: 900;
+            color: black;
+            margin: 0.8rem 0;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,200,0.5);
+        }
+
+        .info-text {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0.8rem 0 0;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .info-sub {
+            color: #FFD700;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            background: rgba(255,215,0,0.1);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        @media (max-width: 992px) {
+            .bonus-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0 16px;
             }
-            50% {
-                box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+            .bonus-card h3 {
+                font-size: 0.85rem;
+            }
+            .bonus-code {
+                font-size: 0.7rem;
+                min-width: 110px;
+                padding: 0.35rem 0.6rem;
+            }
+            .btn-odbierz {
+                font-size: 0.8rem;
+                padding: 0.55rem 0.6rem;
+                width: 90%;
+            }
+            .info-card {
+                max-width: 90%;
+                padding: 1.2rem;
+                margin-top: 15px;
+            }
+            .info-card h3 {
+                font-size: 1.2rem;
+            }
+            .info-highlight-code {
+                font-size: 1.5rem;
+                padding: 0.4rem 1.2rem;
+            }
+            .info-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bonus-grid {
+                gap: 0.8rem;
+                padding: 0 12px;
+            }
+            .bonus-card {
+                padding: 1rem 0.5rem;
+            }
+            .bonus-img {
+                min-height: 70px;
+                padding: 0.5rem;
+            }
+            .bonus-img img {
+                max-height: 60px;
+            }
+            .bonus-card h3 {
+                font-size: 0.75rem;
+            }
+            .btn-odbierz {
+                font-size: 0.7rem;
+                padding: 0.5rem 0.4rem;
+                width: 95%;
+            }
+            .info-card {
+                padding: 1rem;
+            }
+            .info-card h3 {
+                font-size: 1rem;
+            }
+            .info-highlight-code {
+                font-size: 1.2rem;
+                padding: 0.3rem 1rem;
+            }
+            .info-text {
+                font-size: 0.8rem;
+            }
+            .info-sub {
+                font-size: 0.75rem;
             }
         }
 
         .gradient-transition {
             width: 100%;
             height: 150px;
-            background: linear-gradient(180deg, 
-                rgba(0, 0, 0, 0) 0%,
-                rgba(0, 0, 0, 0.3) 30%,
-                rgba(0, 0, 0, 0.7) 70%,
-                black 100%
-            );
-            position: relative;
-            z-index: 10;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, black 100%);
             margin-top: -5px;
         }
 
@@ -769,7 +699,6 @@
             bottom: 20px;
             right: 20px;
             display: flex;
-            align-items: center;
             gap: 15px;
             z-index: 1000;
         }
@@ -782,7 +711,6 @@
             border-radius: 20px;
             font-weight: 700;
             font-size: 14px;
-            transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             border: 2px solid transparent;
         }
@@ -791,7 +719,6 @@
             background: rgba(255, 215, 0, 0.1);
             color: #FFD700;
             border-color: rgba(255, 215, 0, 0.3);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
             animation: status-pulse-gold 2s infinite;
         }
 
@@ -799,17 +726,6 @@
             background: rgba(255, 0, 0, 0.1);
             color: #ff4444;
             border-color: rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-            animation: none;
-        }
-
-        @keyframes status-pulse-gold {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-            }
         }
 
         .status-dot {
@@ -826,19 +742,17 @@
 
         .live-status.offline .status-dot {
             background: #ff4444;
-            box-shadow: 0 0 10px #ff4444;
             animation: none;
         }
 
         @keyframes pulse-gold {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.3);
-                opacity: 0.8;
-            }
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.8; }
+        }
+
+        @keyframes status-pulse-gold {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
         }
 
         .premium-footer {
@@ -847,22 +761,6 @@
             border-top: 1px solid rgba(255, 215, 0, 0.2);
             padding: 60px 20px 30px;
             position: relative;
-            overflow: hidden;
-        }
-
-        .premium-footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 215, 0, 0.3), 
-                #FFD700, 
-                rgba(255, 215, 0, 0.3), 
-                transparent);
         }
 
         .footer-container {
@@ -872,32 +770,12 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
-            position: relative;
-            z-index: 2;
         }
 
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .footer-logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid #FFD700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-        }
-
-        .footer-logo-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, #FFD700);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
 
         .footer-social {
@@ -916,31 +794,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .social-icon:hover::before {
-            left: 100%;
         }
 
         .social-icon:hover {
             transform: translateY(-8px) scale(1.1);
             border-color: #FFD700;
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4);
             background: rgba(255, 215, 0, 0.15);
         }
 
@@ -948,17 +808,6 @@
             width: 32px;
             height: 32px;
             fill: #FFD700;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .social-icon:hover svg {
-            fill: #FFE55C;
-            transform: scale(1.1);
-        }
-
-        .social-icon.kick-icon svg {
-            transform: scale(1.1);
         }
 
         .footer-info-text {
@@ -967,14 +816,8 @@
             font-size: 0.9rem;
             line-height: 1.6;
             max-width: 700px;
-            margin: 20px auto 10px;
-            padding: 0 15px;
-            border-top: 1px solid rgba(255, 215, 0, 0.2);
             padding-top: 30px;
-        }
-
-        .footer-info-text p {
-            margin: 8px 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .footer-info-text .highlight {
@@ -982,215 +825,73 @@
             font-weight: 600;
         }
 
-        .footer-info-text .small {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
         .footer-bottom {
-            width: 100%;
             text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 215, 0, 0.1);
             color: rgba(255, 255, 255, 0.4);
             font-size: 0.8rem;
         }
 
         @media (max-width: 768px) {
             .hero-section {
-                min-height: 100vh;
                 background-image: url("./mobile_bg.png");
             }
-
-            .hero-content {
-                margin-top: 10vh;
-                gap: 5px;
-            }
-            
             .hero-title {
-                max-width: 400px;
-                margin: 0 auto 5px;
+                margin: 20px auto 5px auto;
             }
-
             .hero-title img {
                 max-height: 70px;
             }
-            
-            .hero-cards {
-                gap: 15px;
-                max-width: 100%;
-                padding: 0 10px;
-                margin-top: 5px;
-            }
-            
-            .card {
-                padding: 18px 12px 20px;
-                min-height: 280px;
-                border-radius: 30px;
-            }
-
-            .card-logo {
-                min-height: 60px;
-            }
-
-            .card-logo img {
-                max-width: 120px;
-                max-height: 55px;
-            }
-            
-            .bonus-box {
-                font-size: 18px;
-                padding: 10px 10px;
-                border-width: 2px;
-            }
-            
-            .bonus-description {
-                font-size: 13px;
-                padding: 6px 14px;
-            }
-            
-            .bonus-button {
-                padding: 10px 12px;
-                font-size: 15px;
-                margin-top: 10px;
-            }
-
-            .code-message {
-                margin-top: 15px;
-                margin-bottom: 20px;
-                padding: 15px 20px;
-            }
-
-            .code-message p {
-                font-size: 18px;
-            }
-
-            .code-message .highlight-code {
-                font-size: 24px;
-                padding: 5px 15px;
-                margin-top: 5px;
-            }
-
-            .instruction-text {
-                font-size: 14px !important;
-                margin-top: 10px !important;
-            }
-            
-            .live-status {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-            
-            .live-status-container {
-                gap: 10px;
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .pfp-logo {
-                width: 40px;
-                height: 40px;
-            }
-
-            .gradient-transition {
-                height: 100px;
-            }
-
             .footer-social {
                 gap: 20px;
-                flex-wrap: wrap;
             }
-
             .social-icon {
-                width: 55px;
-                height: 55px;
-            }
-
-            .social-icon svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .footer-info-text {
-                font-size: 0.85rem;
-                padding: 20px 10px 0;
+                width: 50px;
+                height: 50px;
             }
         }
 
-        @media (max-width: 380px) {
-            .hero-title img {
-                max-height: 60px;
-            }
-
-            .card {
-                padding: 15px 8px 18px;
-                min-height: 260px;
-            }
-
-            .card-logo img {
-                max-width: 100px;
-                max-height: 45px;
-            }
-            
-            .bonus-box {
-                font-size: 16px;
-                padding: 8px 5px;
-            }
-            
-            .bonus-description {
-                font-size: 11px;
-                padding: 4px 10px;
-            }
-            
-            .bonus-button {
-                font-size: 13px;
-                padding: 8px 10px;
-            }
-
-            .code-message p {
-                font-size: 16px;
-            }
-
-            .code-message .highlight-code {
-                font-size: 20px;
-            }
-
-            .instruction-text {
-                font-size: 12px !important;
-            }
-        }
-
-        .snowflake {
-        color: #fff;
-        font-size: 1em;
-        font-family: Arial, sans-serif;
-        text-shadow: 0 0 5px #000;
-        }
-        .snowflake,.snowflake .inner{animation-iteration-count:infinite;animation-play-state:running}@keyframes snowflakes-fall{0%{transform:translateY(0)}100%{transform:translateY(110vh)}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(40px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;user-select:none;cursor:default;pointer-events:none;animation-name:snowflakes-shake;animation-duration:3s;animation-timing-function:ease-in-out}.snowflake .inner{animation-duration:10s;animation-name:snowflakes-fall;animation-timing-function:linear}.snowflake:nth-of-type(0){left:1%;animation-delay:0s}.snowflake:nth-of-type(0) .inner{animation-delay:0s}.snowflake:first-of-type{left:10%;animation-delay:1s}.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{animation-delay:1s}.snowflake:nth-of-type(2){left:20%;animation-delay:.5s}.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{animation-delay:6s}.snowflake:nth-of-type(3){left:30%;animation-delay:2s}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{animation-delay:4s}.snowflake:nth-of-type(4){left:40%;animation-delay:2s}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{animation-delay:2s}.snowflake:nth-of-type(5){left:50%;animation-delay:3s}.snowflake:nth-of-type(5) .inner{animation-delay:8s}.snowflake:nth-of-type(6){left:60%;animation-delay:2s}.snowflake:nth-of-type(7){left:70%;animation-delay:1s}.snowflake:nth-of-type(7) .inner{animation-delay:2.5s}.snowflake:nth-of-type(8){left:80%;animation-delay:0s}.snowflake:nth-of-type(9){left:90%;animation-delay:1.5s}.snowflake:nth-of-type(9) .inner{animation-delay:3s}.snowflake:nth-of-type(10){left:25%;animation-delay:0s}.snowflake:nth-of-type(11){left:65%;animation-delay:2.5s}
-        
         .ruletka {
             width: 25vw;
         }
-
         @media (max-width: 767px) {
             .ruletka {
                 width: 65vw;
             }
         }
-    
+
+        .snowflake {
+            position: fixed;
+            top: -10%;
+            z-index: 999;
+            pointer-events: none;
+            animation-name: snowflakes-shake;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+        .snowflake .inner {
+            animation-duration: 10s;
+            animation-name: snowflakes-fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes snowflakes-fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(110vh); }
+        }
+        @keyframes snowflakes-shake {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(40px); }
+        }
     </style>
 </head>
 <body>
-    <!-- MODAL 18+ -->
     <div class="age-modal" id="ageModal">
         <div class="age-modal-content">
             <div class="age-icon">18+</div>
             <h2 class="age-title">Potwierdź wiek</h2>
             <p class="age-text">Ta strona przeznaczona jest wyłącznie dla osób pełnoletnich. Hazard wiąże się z ryzykiem uzależnienia. Graj odpowiedzialnie.</p>
-            <div class="age-warning">
-                ⚠️ Tylko dla osób powyżej 18 lat
-            </div>
+            <div class="age-warning">⚠️ Tylko dla osób powyżej 18 lat</div>
             <div class="age-buttons">
                 <button class="age-btn confirm" id="confirmAge">Mam 18+</button>
                 <button class="age-btn deny" id="denyAge">Nie mam 18 lat</button>
@@ -1210,13 +911,11 @@
             <div class="logo-wrapper">
                 <img src="./HELLBOY.png" alt="HELLBOY Logo" class="logo-hellboy-img">
             </div>
-            
             <div class="premium-hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            
             <ul class="elegant-menu" id="navMenu">
                 <li><a href="./index.html" class="active">STRONA GŁÓWNA</a></li>
                 <li><a href="./wplacanie.html">WPŁATY/WYPŁATY</a></li>
@@ -1227,124 +926,78 @@
 
     <div class="main">
         <div class="snowflakes" aria-hidden="true">
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
-            <div class="snowflake">
-                <div class="inner">
-                    <img src="./coin.png" alt="coin" style="width: 20px; height: 20px;">
-                </div>
-            </div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
         </div>
         <section class="hero-section">
             <div class="hero-content">
                 <div class="hero-title">
                     <img src="./NAPIS.png" alt="REKOMENDOWANE BONUSY">
                 </div>
-                
-                <div class="hero-cards">
-                    <div class="card card-l">
-                        <div class="card-content">
-                            <div class="card-logo">
-                                <img src="./spinbara.png" alt="Spinbara">
-                            </div>
-                            <div>
-                                <p class="bonus-box">370% + 500FS</p>
-                                <p class="bonus-description">KOD: HELLBOY</p>
-                            </div>
-                            <a class="bonus-button" href="https://spnbr.monalvor.com/?mid=360605_2079912">ODBIERZ</a>
-                        </div>
+
+                <!-- 4 kafelki bonusów -->
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <div class="bonus-img"><img src="./spinbara.png" alt="Spinbara"></div>
+                        <h3>150% DO DEPOZYTU + 150FS</h3>
+                        <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
+                        <a href="https://spnbr.monalvor.com/?mid=360605_2079912" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
                     </div>
-                    
-                    <div class="card card-p">
-                        <div class="card-content">
-                            <div class="card-logo">
-                                <img src="./allyspin.svg" alt="Allyspin">
-                            </div>
-                            <div>
-                                <p class="bonus-box">370% + 500FS</p>
-                                <p class="bonus-description">KOD: HELLBOY</p>
-                            </div>
-                            <a class="bonus-button" href="https://all.monalvor.com/?mid=360605_2079911">ODBIERZ</a>
-                        </div>
+                    <div class="bonus-card">
+                        <div class="bonus-img"><img src="./dudespin.webp" alt="Westace"></div>
+                        <h3>300% DO DEPOZYTU + 150FS</h3>
+                        <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
+                        <a href="https://ddspn.lynmonkel.com/?mid=366268_2112782" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-img"><img src="./onlyspins.png" alt="Malina Casino"></div>
+                        <h3>400% DO DEPOZYTU + 450FS</h3>
+                        <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
+                        <a href="https://ons.lynmonkel.com/?mid=304134_1998596" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-img"><img src="./golisimo.png" alt="Spinanga"></div>
+                        <h3>300% DO DEPOZYTU + 300FS</h3>
+                        <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
+                        <a href="https://gls.lynnar.com/?mid=365386_2108016" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
                     </div>
                 </div>
-                
-                <div class="code-message">
-                    <p>⚡ UWAGA! ⚡</p>
-                    <p>Aby uzyskać bonusy oraz udział w rozdaniach<br>WYMAGANE JEST WPISANIE/UŻYCIE KODU:</p>
-                    <p class="highlight-code">HELLBOY</p>
-                    <p class="instruction-text">Kod należy wpisać podczas rejestracji w polu "Kod promocyjny" lub "Bonus code".</p>
+
+                <!-- KOMUNIKAT W STYLU KAFELKA BONUSOWEGO -->
+                <div class="info-card">
+                    <h3>UWAGA! WYMAGANY KOD</h3>
+                    <div class="info-highlight-code">HELLBOY</div>
+                    <p class="info-text">Aby uzyskać bonusy oraz udział w rozdaniach<br>wymagane jest wpisanie / użycie kodu promocyjnego</p>
+                    <div class="info-sub">Kod należy wpisać podczas rejestracji w polu "Kod promocyjny" lub "Bonus code"</div>
                 </div>
             </div>
         </section>
-
         <div class="gradient-transition"></div>
     </div>
-    
+
     <footer class="premium-footer">
         <div class="footer-container">
             <div class="footer-logo">
                 <img src="./ruletka.png" alt="Bonusy" style="height: auto; margin-top: -30px;" class="ruletka">
             </div>
-            
-            <div class="footer-social" style="margin-top: -10px;">
+            <div class="footer-social">
                 <a class="social-icon" href="https://www.instagram.com/grzegorz_hellboy_gluszcz/">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.3 2C5.5 4 4 5.5 4 7.5v9c0 2 1.5 3.5 3.5 3.5h9c2 0 3.5-1.5 3.5-3.5v-9C20 5.5 18.5 4 16.5 4h-9zM12 7c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5zm0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm5-2.5c0 .6-.4 1-1 1s-1-.4-1-1 .4-1 1-1 1 .4 1 1z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.3 2C5.5 4 4 5.5 4 7.5v9c0 2 1.5 3.5 3.5 3.5h9c2 0 3.5-1.5 3.5-3.5v-9C20 5.5 18.5 4 16.5 4h-9zM12 7c2.8 0 5 2.2 5 5s-2.2 5-5 5-5-2.2-5-5 2.2-5 5-5zm0 2c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3zm5-2.5c0 .6-.4 1-1 1s-1-.4-1-1 .4-1 1-1 1 .4 1 1z"/></svg>
                 </a>
                 <a class="social-icon kick-icon" href="https://kick.com/hellboylivetv">
-                    <img src="./kick.svg" alt="" style="width: 24px; height: 24px;">
+                    <img src="./kick.svg" alt="Kick" style="width: 24px; height: 24px;">
                 </a>
                 <a class="social-icon" href="https://www.tiktok.com/@hellboylivetv">
-                    <img src="./tiktok.svg" alt="TikTok" style="width: 24px; height: 24px; color: #FFD700; filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); transition: all 0.3s ease;">
+                    <img src="./tiktok.svg" alt="TikTok" style="width: 24px; height: 24px;">
                 </a>
             </div>
-            
             <div class="footer-info-text">
                 <p><span class="highlight">Bonusy prezentowane na stronie</span> przeznaczone są wyłącznie dla osób przebywających za granicą, gdzie przepisy prawa na to zezwalają.</p>
                 <p>🎯 <span class="highlight">Tylko dla osób pełnoletnich (18+)</span>. Hazard wiąże się z ryzykiem uzależnienia. Graj odpowiedzialnie.</p>
                 <p class="small">Wszystkie oferty promocyjne podlegają regulaminom poszczególnych kasyn. Sprawdź warunki przed skorzystaniem z bonusu.</p>
             </div>
-            
             <div class="footer-bottom">
                 <p>&copy; 2026 HELLBOY Rekomendacje. Wszelkie prawa zastrzeżone.</p>
             </div>
@@ -1352,96 +1005,66 @@
     </footer>
 
     <script>
-    // MODAL 18+
-    const ageModal = document.getElementById('ageModal');
-    const confirmBtn = document.getElementById('confirmAge');
-    const denyBtn = document.getElementById('denyAge');
+        // MODAL 18+
+        const ageModal = document.getElementById('ageModal');
+        const confirmBtn = document.getElementById('confirmAge');
+        const denyBtn = document.getElementById('denyAge');
 
-    // Sprawdź czy użytkownik już potwierdził wiek (localStorage)
-    if (localStorage.getItem('ageConfirmed') === 'true') {
-        ageModal.style.display = 'none';
-    }
-
-    confirmBtn.addEventListener('click', () => {
-        ageModal.classList.add('fade-out');
-        localStorage.setItem('ageConfirmed', 'true');
-        setTimeout(() => {
+        if (localStorage.getItem('ageConfirmed') === 'true') {
             ageModal.style.display = 'none';
-        }, 500);
-    });
-
-    denyBtn.addEventListener('click', () => {
-        window.location.href = 'https://www.google.com'; // Przekierowanie dla osób niepełnoletnich
-    });
-
-    // RESZTA KODU (bez zmian)
-    const premiumNav = document.getElementById('premiumNav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            premiumNav.classList.add('scrolled');
-        } else {
-            premiumNav.classList.remove('scrolled');
         }
-    });
 
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-    
-    const navLinks = document.querySelectorAll('.elegant-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+        confirmBtn.addEventListener('click', () => {
+            ageModal.classList.add('fade-out');
+            localStorage.setItem('ageConfirmed', 'true');
+            setTimeout(() => { ageModal.style.display = 'none'; }, 500);
         });
-    });
-    
-    document.addEventListener('click', (event) => {
-        const isClickInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
-        if (!isClickInsideNav && navMenu.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
 
-    async function checkKickLiveStatus() {
-        const liveStatus = document.getElementById('liveStatus');
-        const statusText = document.querySelector('.status-text');
-        
-        try {
-            const kickUsername = 'hellboylivetv';
-            const response = await fetch(`https://kick.com/api/v1/channels/${kickUsername}`);
-            
-            if (!response.ok) throw new Error('Nie udało się pobrać danych');
-            
-            const data = await response.json();
-            
-            if (data.livestream && data.livestream.is_live) {
-                liveStatus.className = 'live-status live';
-                statusText.textContent = 'LIVE';
-                if (data.livestream.session_title) {
-                    liveStatus.setAttribute('title', data.livestream.session_title);
+        denyBtn.addEventListener('click', () => {
+            window.location.href = 'https://www.google.com';
+        });
+
+        const premiumNav = document.getElementById('premiumNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) premiumNav.classList.add('scrolled');
+            else premiumNav.classList.remove('scrolled');
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.elegant-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        async function checkKickLiveStatus() {
+            const liveStatus = document.getElementById('liveStatus');
+            const statusText = document.querySelector('.status-text');
+            try {
+                const response = await fetch('https://kick.com/api/v1/channels/hellboylivetv');
+                if (!response.ok) throw new Error();
+                const data = await response.json();
+                if (data.livestream && data.livestream.is_live) {
+                    liveStatus.className = 'live-status live';
+                    statusText.textContent = 'LIVE';
+                } else {
+                    liveStatus.className = 'live-status offline';
+                    statusText.textContent = 'OFFLINE';
                 }
-            } else {
+            } catch {
                 liveStatus.className = 'live-status offline';
                 statusText.textContent = 'OFFLINE';
             }
-            
-        } catch (error) {
-            console.error('Błąd pobierania statusu Kick:', error);
-            liveStatus.className = 'live-status offline';
-            statusText.textContent = 'OFFLINE';
         }
-    }
-
-    document.addEventListener('DOMContentLoaded', checkKickLiveStatus);
-    setInterval(checkKickLiveStatus, 60000);
+        document.addEventListener('DOMContentLoaded', checkKickLiveStatus);
+        setInterval(checkKickLiveStatus, 60000);
     </script>
 </body>
 </html>
