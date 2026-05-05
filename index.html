@@ -631,157 +631,6 @@
             backdrop-filter: blur(4px);
         }
 
-        /* ULEPSZONE OKIENKO ODTWARZACZA YOUTUBE (teledysk) - TERAZ NIŻEJ Z MINIATURKĄ */
-        .music-player-card {
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 36px;
-            border: 1px solid rgba(255, 215, 0, 0.7);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,215,0,0.2) inset;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s;
-            position: relative;
-            z-index: 3;
-        }
-        .music-player-card:hover {
-            transform: translateY(-6px);
-            border-color: #FFD700;
-            box-shadow: 0 25px 45px rgba(255, 215, 0, 0.25);
-        }
-        .player-header {
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(25,20,5,0.9));
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-bottom: 2px solid rgba(255, 215, 0, 0.5);
-        }
-        .player-header-icon {
-            width: 38px;
-            height: 38px;
-            background: linear-gradient(145deg, #FFD700, #B8860B);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 900;
-            color: black;
-            box-shadow: 0 0 8px #FFD700;
-        }
-        .player-header-text {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: #FFD700;
-            letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-        .player-header-sub {
-            font-size: 0.7rem;
-            color: #FFD700;
-            font-weight: 600;
-            margin-left: auto;
-            background: rgba(0,0,0,0.5);
-            padding: 4px 12px;
-            border-radius: 40px;
-            border-left: 1px solid #FFD700;
-        }
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            background: #000;
-            cursor: pointer;
-        }
-        .video-thumb {
-            position: relative;
-            width: 100%;
-            display: block;
-        }
-        .video-thumb img {
-            width: 100%;
-            display: block;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-        }
-        .play-button-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.3);
-            transition: background 0.2s;
-        }
-        .play-button-overlay:hover {
-            background: rgba(0,0,0,0.2);
-        }
-        .play-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(0,0,0,0.7);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #FFD700;
-            transition: transform 0.2s;
-        }
-        .play-icon svg {
-            width: 36px;
-            height: 36px;
-            fill: #FFD700;
-            margin-left: 4px;
-        }
-        .play-button-overlay:hover .play-icon {
-            transform: scale(1.1);
-            background: rgba(255,215,0,0.2);
-        }
-        .video-iframe {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            display: none;
-            border: none;
-        }
-        .video-iframe.active {
-            display: block;
-        }
-        .video-thumb.hide {
-            display: none;
-        }
-
-        @media (max-width: 640px) {
-            .player-header-text {
-                font-size: 1rem;
-            }
-            .player-header-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-            }
-            .play-icon {
-                width: 55px;
-                height: 55px;
-            }
-            .play-icon svg {
-                width: 28px;
-                height: 28px;
-            }
-        }
-        @media (max-width: 480px) {
-            .player-header-text {
-                font-size: 0.85rem;
-            }
-            .player-header-sub {
-                font-size: 0.6rem;
-            }
-        }
-
         @media (max-width: 992px) {
             .bonus-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1037,29 +886,54 @@
             }
         }
 
+        /* Ulepszone spadające monety - lepsze na telefonie */
         .snowflake {
             position: fixed;
             top: -10%;
             z-index: 999;
             pointer-events: none;
+            will-change: transform;
             animation-name: snowflakes-shake;
             animation-duration: 3s;
             animation-timing-function: ease-in-out;
             animation-iteration-count: infinite;
         }
         .snowflake .inner {
-            animation-duration: 10s;
+            display: block;
+            animation-duration: 8s;
             animation-name: snowflakes-fall;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
         }
+        .snowflake img {
+            display: block;
+            width: 24px;
+            height: 24px;
+            filter: drop-shadow(0 0 4px rgba(255,215,0,0.6));
+        }
         @keyframes snowflakes-fall {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(110vh); }
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
         }
         @keyframes snowflakes-shake {
             0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(40px); }
+            50% { transform: translateX(30px); }
+        }
+        /* Responsywność monet na małych ekranach */
+        @media (max-width: 768px) {
+            .snowflake img {
+                width: 18px;
+                height: 18px;
+            }
+            .snowflake .inner {
+                animation-duration: 6s;
+            }
+        }
+        @media (max-width: 480px) {
+            .snowflake img {
+                width: 14px;
+                height: 14px;
+            }
         }
     </style>
 </head>
@@ -1104,10 +978,12 @@
 
     <div class="main">
         <div class="snowflakes" aria-hidden="true">
-            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
-            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
-            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
-            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin" style="width: 20px; height: 20px;"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin"></div></div>
+            <div class="snowflake"><div class="inner"><img src="./coin.png" alt="coin"></div></div>
         </div>
         <section class="hero-section">
             <div class="hero-content">
@@ -1118,28 +994,28 @@
                 <!-- 4 kafelki bonusów -->
                 <div class="bonus-grid">
                     <div class="bonus-card">
-                        <div class="bonus-img"><img src="./spinbara.png" alt="Spinbara"></div>
-                        <h3>370% DO DEPOZYTU + 500FS</h3>
+                        <div class="bonus-img"><img src="./nvcasino.svg" alt="Spinbara"></div>
+                        <h3>80 FS ON BOOK OF FALLEN</h3>
                         <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
-                        <a href="https://spnbr.monalvor.com/?mid=360605_2079912" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
+                        <a href="https://pinalindrahusth.com/22904/29327?lp=00" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
                     </div>
                     <div class="bonus-card">
-                        <div class="bonus-img"><img src="./dudespin.webp" alt="Westace"></div>
-                        <h3>300% DO DEPOZYTU + 150FS</h3>
+                        <div class="bonus-img"><img src="./ggebt.png" alt="Westace"></div>
+                        <h3>100 FS PM SWEET BONANZA 1000</h3>
                         <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
-                        <a href="https://ddspn.lynmonkel.com/?mid=366268_2112782" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
+                        <a href="https://pinalindrahusth.com/25321/29712?lp=00" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
                     </div>
                     <div class="bonus-card">
-                        <div class="bonus-img"><img src="./onlyspins.png" alt="Malina Casino"></div>
-                        <h3>400% DO DEPOZYTU + 450FS</h3>
+                        <div class="bonus-img"><img src="./vegas.svg" alt="Malina Casino"></div>
+                        <h3>150% + 50 FS FIRE JOKER</h3>
                         <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
-                        <a href="https://ons.lynmonkel.com/?mid=304134_1998596" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
+                        <a href="https://pinalindrahusth.com/25322/26806?lp=00" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
                     </div>
                     <div class="bonus-card">
-                        <div class="bonus-img"><img src="./golisimo.png" alt="Spinanga"></div>
-                        <h3>300% DO DEPOZYTU + 300FS</h3>
+                        <div class="bonus-img"><img src="./yep.svg" alt="Spinanga"></div>
+                        <h3>100 FS ON CROWN COINS</h3>
                         <div class="bonus-code">UŻYJ KODU : HELLBOY</div>
-                        <a href="https://gls.lynnar.com/?mid=365386_2108016" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
+                        <a href="https://pinalindrahusth.com/25331/26797?lp=00" target="_blank" rel="noopener noreferrer" class="btn-odbierz">ODBIERZ</a>
                     </div>
                 </div>
 
@@ -1149,7 +1025,7 @@
                     <div class="divider-glow"></div>
                 </div>
 
-                <!-- KAFELEK Z KODEM HELLBOY (przeniesiony wyżej) -->
+                <!-- KAFELEK Z KODEM HELLBOY -->
                 <div class="info-card">
                     <h3>UWAGA! WYMAGANY KOD</h3>
                     <div class="info-highlight-code">HELLBOY</div>
@@ -1161,31 +1037,6 @@
                 <div class="elegant-divider">
                     <div class="divider-line"></div>
                     <div class="divider-glow"></div>
-                </div>
-
-                <!-- ULEPSZONE OKIENKO Z TELEDYSKIEM (z miniaturką .avif) -->
-                <div class="music-player-card" id="ytPlayerCard">
-                    <div class="player-header">
-                        <div class="player-header-text">ZOBACZ MÓJ NAJNOWSZY TELEDYSYK</div>
-                    </div>
-                    <div class="video-wrapper" id="videoWrapper">
-                        <div class="video-thumb" id="videoThumb">
-                            <img src="./min.avif" alt="Podgląd teledysku Gołodupiec" onerror="this.src='https://img.youtube.com/vi/2siIJRWcT0o/maxresdefault.jpg'">
-                            <div class="play-button-overlay" id="playButton">
-                                <div class="play-icon">
-                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <iframe
-                            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"
-                            src="https://tube.rvere.com/embed?v=2siIJRWcT0o"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen>
-                        </iframe>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1280,21 +1131,31 @@
         }
         document.addEventListener('DOMContentLoaded', checkKickLiveStatus);
         setInterval(checkKickLiveStatus, 60000);
-
-        // Obsługa odtwarzacza YouTube z miniaturką .avif
-        const playBtn = document.getElementById('playButton');
-        const videoThumbDiv = document.getElementById('videoThumb');
-        const iframePlayer = document.getElementById('youtubeIframe');
         
-        if (playBtn && videoThumbDiv && iframePlayer) {
-            playBtn.addEventListener('click', function() {
-                videoThumbDiv.classList.add('hide');
-                iframePlayer.classList.add('active');
-                // Dodatkowo ustaw autoplay w iframe (już jest w src autoplay=1)
-                // Ponowne załadowanie iframe, aby autoplay zadziałał na kliknięcie
-                const src = iframePlayer.src;
-                iframePlayer.src = src;
-            });
+        // Dodajemy dodatkowe monety aby efekt był bogatszy, szczególnie na mobilkach
+        const snowflakesContainer = document.querySelector('.snowflakes');
+        if(snowflakesContainer) {
+            const coinsCount = 10;
+            for(let i = 0; i < coinsCount; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                const inner = document.createElement('div');
+                inner.className = 'inner';
+                const img = document.createElement('img');
+                img.src = './coin.png';
+                img.alt = 'coin';
+                inner.appendChild(img);
+                flake.appendChild(inner);
+                const randomLeft = Math.random() * 100;
+                const randomDelay = Math.random() * 5;
+                const randomDuration = 6 + Math.random() * 4;
+                const randomShake = 2 + Math.random() * 2;
+                flake.style.left = randomLeft + '%';
+                flake.style.animationDuration = randomShake + 's';
+                inner.style.animationDuration = randomDuration + 's';
+                inner.style.animationDelay = randomDelay + 's';
+                snowflakesContainer.appendChild(flake);
+            }
         }
     </script>
 </body>
